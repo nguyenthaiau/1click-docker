@@ -34,3 +34,21 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plu
 echo ""
 echo "Docker and Docker compose are properly installed."
 docker --version
+
+#install docker-compose
+#add user to group docker
+sudo usermod -aG docker $USER
+
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.16.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+# if vps is arm (Pi - oracle)
+# Install required packages
+# sudo apt update
+# sudo apt install -y python3-pip libffi-dev
+
+# Install Docker Compose from pip (using Python3)
+# This might take a while
+# sudo pip install docker-compose
+docker-compose --version
